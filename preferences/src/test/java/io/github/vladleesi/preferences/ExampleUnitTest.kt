@@ -1,8 +1,7 @@
-package ru.vladleesi.preferences_ktx
-
-import org.junit.Test
+package io.github.vladleesi.preferences
 
 import org.junit.Assert.*
+import org.junit.Test
 
 /**
  * Example local unit test, which will execute on the development machine (host).

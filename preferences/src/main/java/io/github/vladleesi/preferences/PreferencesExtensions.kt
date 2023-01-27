@@ -1,4 +1,4 @@
-package ru.vladleesi.preferences_ktx
+package io.github.vladleesi.preferences
 
 import android.content.SharedPreferences
 
