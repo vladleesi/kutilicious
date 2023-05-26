@@ -12,5 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "preferences-ktx"
-include ':preferences-ktx'
+rootProject.name = "kutilicious"
+include ':base'
+include ':android-preferences'

@@ -10,7 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/preferences-ktx" />
+            <option value="$PROJECT_DIR$/preferences" />
           </set>
         </option>
       </GradleProjectSettings>
