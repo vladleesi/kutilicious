@@ -21,7 +21,7 @@ subprojects { subproject ->
             "$publicationName"(MavenPublication) {
                 groupId project.property('publication.groupId')
                 artifactId subproject.name
-                version project.property('version')
+                version project.property('publication.version')
 
                 // Include your library's AAR file
                 artifact("$rootDir/${subproject.name}/build/outputs/aar/${subproject.name}-release.aar")
