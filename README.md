@@ -1,5 +1,7 @@
 # kutilicious
 
+[![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.3.0)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
+
 Small Kotlin and Android extensions for a better development experience
 
 ## Utility Functions Summary
