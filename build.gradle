@@ -4,29 +4,38 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.8.21' apply false
     id 'org.jlleitschuh.gradle.ktlint' version '11.0.0'
     id 'maven-publish'
+    id 'signing'
 }
 
 allprojects {
     apply plugin: "org.jlleitschuh.gradle.ktlint"
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+signing {
+    sign publishing.publications
 }
 
 subprojects { subproject ->
     publishing {
+        def subprojectName = subproject.name.toString()
         publications {
-            def publicationName = subproject.name.toString().replace("-", "")
-            "$publicationName"(MavenPublication) {
+            "$subprojectName"(MavenPublication) {
                 groupId project.property('publication.groupId')
                 artifactId subproject.name
                 version project.property('publication.version')
 
                 // Include your library's AAR file
-                artifact("$rootDir/${subproject.name}/build/outputs/aar/${subproject.name}-release.aar")
+                artifact("$rootDir/$subprojectName/build/outputs/aar/$subprojectName-release.aar")
 
                 pom {
+                    url = project.property('pom.url')
+                    name = project.property('pom.name')
+                    description = project.property('pom.description')
+                    scm {
+                        url = project.property('pom.scm.url')
+                        connection = project.property('pom.scm.connection')
+                        developerConnection = project.property('pom.scm.developer.connection')
+                    }
                     licenses {
                         license {
                             name = project.property('pom.license.name')
