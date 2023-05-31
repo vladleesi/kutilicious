@@ -4,6 +4,20 @@
 
 Small Kotlin and Android extensions for a better development experience
 
+## Setup
+``` groovy
+// build.gradle
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'dev.vladleesi.kutilicious:base:0.3.0'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:0.3.0'
+}
+```
+
 ## Utility Functions Summary
 
 ### Base Extensions
