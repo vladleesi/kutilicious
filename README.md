@@ -18,7 +18,7 @@ dependencies {
 }
 ```
 
-## Utility Functions Summary
+## Base
 
 ### Base Extensions
 - `tag()`: Returns the tag (simple name) of the class.
@@ -57,6 +57,32 @@ dependencies {
 - `isUrlWithCustomScheme()`: Checks if the string is a URL with a custom scheme.
 - `getQueryMap()`: Extracts the query parameters from the string URL and returns them as a map.
 - `removeQueries(vararg queryKeys: String)`: Removes the specified query parameters from the string URL and returns the updated URL.
+
+## Android Preferences
+
+1. `get` retrieves a value from SharedPreferences based on a given key and returns it. If the value is not found or is null, it returns a default value.
+```kotlin
+// Assuming you have an instance of SharedPreferences called "sharedPrefs"
+val sharedPreferences = context.getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE)
+// Retrieve a boolean value with the key "isDarkModeEnabled", providing a default value of false
+val isDarkModeEnabled = sharedPreferences.get("isDarkModeEnabled", false)
+```
+
+2. `putSync` stores a value in SharedPreferences synchronously using a specified key. It returns `true` if the value is successfully stored, and `false` otherwise.
+```kotlin
+// Assuming you have an instance of SharedPreferences called "sharedPrefs"
+val sharedPreferences = context.getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE)
+// Store a boolean value with the key "isDarkModeEnabled"
+sharedPreferences.putSync("isDarkModeEnabled", true)
+```
+
+3. `putAsync` stores a value in SharedPreferences asynchronously with a specified key. It performs the storage operation in the background and does not return a value.
+```kotlin
+// Assuming you have an instance of SharedPreferences called "sharedPrefs"
+val sharedPreferences = context.getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE)
+// Store a boolean value with the key "isDarkModeEnabled" asynchronously
+sharedPreferences.putAsync("isDarkModeEnabled", true)
+```
 
 ## License
 
