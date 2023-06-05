@@ -35,21 +35,9 @@ jobs:
           profile: Nexus 6
           script: ./gradlew connectedCheck --stacktrace
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+      - name: Push to master branch
+        if: ${{ success() }}
+        uses: ad-m/github-push-action@master
         with:
-          base: master
-          branch: develop
-          token: ${{ secrets.TOKEN }}
-
-      - name: Approve Pull Request
-        uses: juliangruber/approve-pull-request-action@v2.0.0
-        with:
-          github-token: ${{ secrets.TOKEN }}
-          number: 1
-
-      - name: Merge Pull Request
-        uses: juliangruber/merge-pull-request-action@v1
-        with:
-          github-token: ${{ secrets.TOKEN }}
-          number: 1
+          branch: master
+          force: true
