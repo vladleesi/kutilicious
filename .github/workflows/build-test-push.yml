@@ -42,4 +42,4 @@ jobs:
           branch: master
           force: true
           unprotect_reviews: true
-          token: ${{ secrets.TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
