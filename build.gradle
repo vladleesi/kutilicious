@@ -57,8 +57,8 @@ subprojects { subproject ->
             maven {
                 url = project.property('nexus.url')
                 credentials {
-                    username = project.property('nexus.username')
-                    password = project.property('nexus.password')
+                    username = System.getenv('NEXUS_USERNAME')
+                    password = System.getenv('NEXUS_PASSWORD')
                 }
             }
         }

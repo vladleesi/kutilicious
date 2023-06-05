@@ -41,5 +41,5 @@ jobs:
         with:
           branch: master
           force: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          unprotect_reviews: true
+          token: ${{ secrets.TOKEN }}
