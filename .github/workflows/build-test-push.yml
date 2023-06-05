@@ -41,3 +41,5 @@ jobs:
         with:
           branch: master
           force: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}

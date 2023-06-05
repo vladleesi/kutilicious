@@ -1,10 +1,11 @@
 # kutilicious
 
-[![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.3.0)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
+[![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.4.0)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
 
 Small Kotlin and Android extensions for a better development experience
 
 ## Setup
+
 ``` groovy
 // build.gradle
 
@@ -13,8 +14,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.vladleesi.kutilicious:base:0.3.0'
-    implementation 'dev.vladleesi.kutilicious:android-preferences:0.3.0'
+    implementation 'dev.vladleesi.kutilicious:base:0.4.0'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:0.4.0'
 }
 ```
 
