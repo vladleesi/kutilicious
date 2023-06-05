@@ -1,6 +1,6 @@
 # kutilicious
 
-[![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.4.0)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
+[![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.5.0)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
 
 Small Kotlin and Android extensions for a better development experience
 
@@ -14,8 +14,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.vladleesi.kutilicious:base:0.4.0'
-    implementation 'dev.vladleesi.kutilicious:android-preferences:0.4.0'
+    implementation 'dev.vladleesi.kutilicious:base:0.5.0'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:0.5.0'
 }
 ```
 
@@ -105,6 +105,15 @@ val sharedPreferences = context.getSharedPreferences("mySharedPreferences", Cont
 // Store a boolean value with the key "isDarkModeEnabled" asynchronously
 sharedPreferences.putAsync("isDarkModeEnabled", true)
 ```
+
+## View Extensions
+
+- `visible()`: Sets the visibility of a View to VISIBLE.
+- `gone()`: Sets the visibility of a View to GONE.
+- `invisible()`: Sets the visibility of a View to INVISIBLE.
+- `addRipple()`: Adds a ripple effect to the background of a View using the theme's selectableItemBackground attribute.
+- `addCircleRipple()`: Adds a circular ripple effect to the background of a View using the theme's selectableItemBackgroundBorderless attribute (available for API level 21 and higher).
+- `onFocus(block: (hasFocus: Boolean) -> Unit)`: Sets a callback function to be invoked when the focus state of a View changes.
 
 ## License
 
