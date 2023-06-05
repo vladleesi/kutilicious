@@ -1,9 +1,45 @@
+@file:JvmName("PreferencesExtensions")
+
 package dev.vladleesi.preferences
 
 import android.content.SharedPreferences
 
 /**
- * Retrieves a value from the SharedPreferences with the specified key.
+ * Performs synchronous editing of SharedPreferences by executing the provided actions on the SharedPreferences.Editor.
+ * The changes made using this function will be immediately committed using the `commit()` method.
+ *
+ * @param actions A lambda function that takes a SharedPreferences.Editor as its receiver,
+ * allowing you to perform editing operations on it.
+ * @return Returns result of [SharedPreferences.Editor.commit].
+ *
+ * @see SharedPreferences.Editor
+ * @see SharedPreferences.Editor.commit
+ */
+inline fun SharedPreferences.editSync(actions: SharedPreferences.Editor.() -> Unit) =
+    edit().run {
+        actions()
+        commit()
+    }
+
+/**
+ * Performs asynchronous editing of SharedPreferences by executing the provided actions on the SharedPreferences.Editor.
+ * The changes made using this function will be applied asynchronously using the `apply()` method.
+ *
+ * @param actions A lambda function that takes a [SharedPreferences.Editor] as its receiver,
+ * allowing you to perform editing operations on it.
+ * @return Returns nothing.
+ *
+ * @see SharedPreferences.Editor
+ * @see SharedPreferences.Editor.apply
+ */
+inline fun SharedPreferences.editAsync(actions: SharedPreferences.Editor.() -> Unit) =
+    edit().run {
+        actions()
+        apply()
+    }
+
+/**
+ * Retrieves a value from the [SharedPreferences] with the specified key.
  *
  * @param key The key used to retrieve the value.
  * @param defaultValue The default value to return if the key is not found or the value is null.
@@ -29,7 +65,7 @@ inline fun <reified T> SharedPreferences.get(key: String, defaultValue: T): T {
 }
 
 /**
- * Stores a value in the SharedPreferences with the specified key synchronously.
+ * Stores a value in the [SharedPreferences] with the specified key synchronously.
  *
  * @param key The key used to store the value.
  * @param value The value to store.
@@ -54,7 +90,7 @@ inline fun <reified T> SharedPreferences.putSync(key: String?, value: T?): Boole
 }
 
 /**
- * Stores a value in the SharedPreferences with the specified key asynchronously.
+ * Stores a value in the [SharedPreferences] with the specified key asynchronously.
  *
  * @param key The key used to store the value.
  * @param value The value to store.

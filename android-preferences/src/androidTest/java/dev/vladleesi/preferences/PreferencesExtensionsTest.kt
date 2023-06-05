@@ -26,6 +26,33 @@ class PreferencesExtensionsTest {
     }
 
     @Test
+    fun testEditSync() {
+        // Perform synchronous editing of SharedPreferences
+        sharedPreferences.editSync {
+            putString("key", "value")
+            putInt("count", 5)
+        }
+        // Verify the changes made using SharedPreferences methods
+        val value = sharedPreferences.getString("key", null)
+        val count = sharedPreferences.getInt("count", 0)
+        // Assert the value
+        assertEquals("value", value)
+        assertEquals(5, count)
+    }
+
+    @Test
+    fun testEditAsync() {
+        // Perform asynchronous editing of SharedPreferences
+        sharedPreferences.editAsync {
+            putBoolean("isFirstLaunch", false)
+        }
+        // Verify the changes made using SharedPreferences methods
+        val isFirstLaunch = sharedPreferences.getBoolean("isFirstLaunch", true)
+        // Assert the value
+        assertEquals(false, isFirstLaunch)
+    }
+
+    @Test
     fun testSharedPreferencesGet() {
         // Write data to SharedPreferences using the extension function
         sharedPreferences.putSync("key", "value")

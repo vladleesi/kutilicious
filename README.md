@@ -60,7 +60,28 @@ dependencies {
 
 ## Android Preferences
 
-1. `get` retrieves a value from SharedPreferences based on a given key and returns it. If the value is not found or is null, it returns a default value.
+1. `editSync`
+
+Synchronously edits SharedPreferences. Changes made using this function are immediately committed using `commit()`.
+
+```kotlin
+sharedPreferences.editSync {
+    putString("key", "value")
+    putInt("count", 5)
+}
+```
+
+2. `editAsync`
+
+Asynchronously edits SharedPreferences. Changes made using this function are applied using `apply()`.
+
+```kotlin
+sharedPreferences.editAsync {
+    putBoolean("isFirstLaunch", false)
+}
+```
+
+3. `get` retrieves a value from SharedPreferences based on a given key and returns it. If the value is not found or is null, it returns a default value.
 ```kotlin
 // Assuming you have an instance of SharedPreferences called "sharedPrefs"
 val sharedPreferences = context.getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE)
@@ -68,7 +89,7 @@ val sharedPreferences = context.getSharedPreferences("mySharedPreferences", Cont
 val isDarkModeEnabled = sharedPreferences.get("isDarkModeEnabled", false)
 ```
 
-2. `putSync` stores a value in SharedPreferences synchronously using a specified key. It returns `true` if the value is successfully stored, and `false` otherwise.
+4. `putSync` stores a value in SharedPreferences synchronously using a specified key. It returns `true` if the value is successfully stored, and `false` otherwise.
 ```kotlin
 // Assuming you have an instance of SharedPreferences called "sharedPrefs"
 val sharedPreferences = context.getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE)
@@ -76,7 +97,7 @@ val sharedPreferences = context.getSharedPreferences("mySharedPreferences", Cont
 sharedPreferences.putSync("isDarkModeEnabled", true)
 ```
 
-3. `putAsync` stores a value in SharedPreferences asynchronously with a specified key. It performs the storage operation in the background and does not return a value.
+5. `putAsync` stores a value in SharedPreferences asynchronously with a specified key. It performs the storage operation in the background and does not return a value.
 ```kotlin
 // Assuming you have an instance of SharedPreferences called "sharedPrefs"
 val sharedPreferences = context.getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE)
