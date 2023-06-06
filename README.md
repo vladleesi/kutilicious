@@ -16,6 +16,7 @@ repositories {
 dependencies {
     implementation 'dev.vladleesi.kutilicious:base:0.5.0'
     implementation 'dev.vladleesi.kutilicious:android-preferences:0.5.0'
+    implementation 'dev.vladleesi.kutilicious:android-view:0.5.0'
 }
 ```
 
