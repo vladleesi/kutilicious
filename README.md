@@ -1,6 +1,6 @@
 # kutilicious
 
-[![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.5.0)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.5.0)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
 
 Small Kotlin and Android extensions for a better development experience
 
