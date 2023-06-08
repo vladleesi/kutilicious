@@ -1,6 +1,6 @@
 # kutilicious
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.5.0&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.6.0&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
 
 Small Kotlin and Android extensions for a better development experience
 
@@ -14,9 +14,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.vladleesi.kutilicious:base:0.5.0'
-    implementation 'dev.vladleesi.kutilicious:android-preferences:0.5.0'
-    implementation 'dev.vladleesi.kutilicious:android-view:0.5.0'
+    implementation 'dev.vladleesi.kutilicious:base:0.6.0'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:0.6.0'
+    implementation 'dev.vladleesi.kutilicious:android-view:0.6.0'
 }
 ```
 
@@ -59,6 +59,14 @@ dependencies {
 - `isUrlWithCustomScheme()`: Checks if the string is a URL with a custom scheme.
 - `getQueryMap()`: Extracts the query parameters from the string URL and returns them as a map.
 - `removeQueries(vararg queryKeys: String)`: Removes the specified query parameters from the string URL and returns the updated URL.
+### Date Extensions
+- `now: Date`: Returns the current date and time.
+- `nowTime: Long`: Returns the current time in milliseconds since January 1, 1970, 00:00:00 GMT.
+- `Long.toDate(): Date`: Converts a long value representing the time in milliseconds to a Date object.
+- `String.toDate(pattern: String, locale: Locale = Locale.getDefault()): Date?`: Converts a String representation of a date to a Date object using the specified pattern and locale.
+- `String.toDate(simpleDateFormat: SimpleDateFormat): Date?`: Converts a String representation of a date to a Date object using the specified SimpleDateFormat instance.
+- `Date.toString(pattern: String, locale: Locale = Locale.getDefault()): String?`: Converts the Date object to a string representation using the specified pattern and locale.
+- `Date.toString(simpleDateFormat: SimpleDateFormat): String?`: Converts the Date object to a string representation using the specified SimpleDateFormat instance.
 
 ## Android Preferences
 
