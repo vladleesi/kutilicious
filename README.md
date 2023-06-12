@@ -1,4 +1,13 @@
-# kutilicious
+``` bash
+/$$                   /$$     /$$ /$$ /$$           /$$                              
+| $$                  | $$    |__/| $$|__/          |__/                              
+| $$   /$$ /$$   /$$ /$$$$$$   /$$| $$ /$$  /$$$$$$$ /$$  /$$$$$$  /$$   /$$  /$$$$$$$
+| $$  /$$/| $$  | $$|_  $$_/  | $$| $$| $$ /$$_____/| $$ /$$__  $$| $$  | $$ /$$_____/
+| $$$$$$/ | $$  | $$  | $$    | $$| $$| $$| $$      | $$| $$  \ $$| $$  | $$|  $$$$$$ 
+| $$_  $$ | $$  | $$  | $$ /$$| $$| $$| $$| $$      | $$| $$  | $$| $$  | $$ \____  $$
+| $$ \  $$|  $$$$$$/  |  $$$$/| $$| $$| $$|  $$$$$$$| $$|  $$$$$$/|  $$$$$$/ /$$$$$$$/
+|__/  \__/ \______/    \___/  |__/|__/|__/ \_______/|__/ \______/  \______/ |_______/
+```
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.6.0&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
 
