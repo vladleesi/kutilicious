@@ -9,7 +9,7 @@
 |__/  \__/ \______/    \___/  |__/|__/|__/ \_______/|__/ \______/  \______/ |_______/
 ```
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.6.0&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.7.0&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
 
 Small Kotlin and Android extensions for a better development experience
 
@@ -23,9 +23,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.vladleesi.kutilicious:base:0.6.0'
-    implementation 'dev.vladleesi.kutilicious:android-preferences:0.6.0'
-    implementation 'dev.vladleesi.kutilicious:android-view:0.6.0'
+    implementation 'dev.vladleesi.kutilicious:base:0.7.0'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:0.7.0'
+    implementation 'dev.vladleesi.kutilicious:android-view:0.7.0'
+    implementation 'dev.vladleesi.kutilicious:android-text:0.7.0'
 }
 ```
 
@@ -124,7 +125,7 @@ val sharedPreferences = context.getSharedPreferences("mySharedPreferences", Cont
 sharedPreferences.putAsync("isDarkModeEnabled", true)
 ```
 
-## View Extensions
+## Android View
 
 - `visible()`: Sets the visibility of a View to VISIBLE.
 - `gone()`: Sets the visibility of a View to GONE.
@@ -132,6 +133,15 @@ sharedPreferences.putAsync("isDarkModeEnabled", true)
 - `addRipple()`: Adds a ripple effect to the background of a View using the theme's selectableItemBackground attribute.
 - `addCircleRipple()`: Adds a circular ripple effect to the background of a View using the theme's selectableItemBackgroundBorderless attribute (available for API level 21 and higher).
 - `onFocus(block: (hasFocus: Boolean) -> Unit)`: Sets a callback function to be invoked when the focus state of a View changes.
+
+## Android Text
+
+- `getHighlightColor`: Retrieves the hexadecimal representation of a highlight color specified by a color resource ID.
+- `fromHTML`: Converts a string to a CharSequence with HTML formatting.
+- `bold`: Formats a CharSequence to be displayed in bold using HTML tags.
+- `withAsterisk`: Formats a CharSequence with an asterisk and applies a highlight color to the asterisk using HTML tags.
+- `applyColorSpanToSubstrings`: Applies a foreground color span to specified substrings within a CharSequence.
+- `applyBoldSpanToSubstrings`: Applies a bold style span to specified substrings within a CharSequence.
 
 ## License
 
