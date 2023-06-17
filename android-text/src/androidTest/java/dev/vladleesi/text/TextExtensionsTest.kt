@@ -64,8 +64,10 @@ class TextExtensionsTest {
         val inputText = "This is a test"
         val colorHex = ContextCompat.getColor(context, androidx.appcompat.R.color.error_color_material_light)
         val subStrings = arrayOf("is", "test")
-        val expectedOutput =
-            "Th<span style=\"color:#FF0000;\">is</span> <span style=\"color:#FF0000;\">is</span> a <span style=\"color:#FF0000;\">test</span>".fromHTML()
+        val expectedOutput = (
+            "Th<span style=\"color:#FF0000;\">is</span> <span style=\"color:#FF0000;\">" +
+                "is</span> a <span style=\"color:#FF0000;\">test</span>"
+            ).fromHTML()
 
         val output = inputText.applyColorSpanToSubstrings(colorHex, false, *subStrings)
 
