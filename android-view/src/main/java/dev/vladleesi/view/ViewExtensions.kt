@@ -1,3 +1,5 @@
+@file:JvmName("ViewExtensions")
+
 package dev.vladleesi.view
 
 import android.os.Build
