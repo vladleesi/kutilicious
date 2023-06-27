@@ -9,7 +9,7 @@
 |__/  \__/ \______/    \___/  |__/|__/|__/ \_______/|__/ \______/  \______/ |_______/
 ```
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.7.0&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.7.1&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
 
 Small Kotlin and Android extensions for a better development experience
 
@@ -23,10 +23,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.vladleesi.kutilicious:base:0.7.0'
-    implementation 'dev.vladleesi.kutilicious:android-preferences:0.7.0'
-    implementation 'dev.vladleesi.kutilicious:android-view:0.7.0'
-    implementation 'dev.vladleesi.kutilicious:android-text:0.7.0'
+    implementation 'dev.vladleesi.kutilicious:base:0.7.1'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:0.7.1'
+    implementation 'dev.vladleesi.kutilicious:android-view:0.7.1'
+    implementation 'dev.vladleesi.kutilicious:android-text:0.7.1'
 }
 ```
 
