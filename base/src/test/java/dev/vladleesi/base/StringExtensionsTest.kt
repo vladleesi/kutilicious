@@ -11,62 +11,6 @@ import org.junit.Test
 class StringExtensionsTest {
 
     @Test
-    fun `isNullOrEmptyAfterTrim should return true for null string`() {
-        val string: String? = null
-        val result = string.isNullOrEmptyAfterTrim()
-        assertTrue(result)
-    }
-
-    @Test
-    fun `isNullOrEmptyAfterTrim should return true for empty string`() {
-        val string = ""
-        val result = string.isNullOrEmptyAfterTrim()
-        assertTrue(result)
-    }
-
-    @Test
-    fun `isNullOrEmptyAfterTrim should return true for string with only whitespaces`() {
-        val string = "   "
-        val result = string.isNullOrEmptyAfterTrim()
-        assertTrue(result)
-    }
-
-    @Test
-    fun `isNullOrEmptyAfterTrim should return false for non-empty string`() {
-        val string = "Hello, World!"
-        val result = string.isNullOrEmptyAfterTrim()
-        assertFalse(result)
-    }
-
-    @Test
-    fun `isNotNullOrEmptyAfterTrim should return false for null string`() {
-        val string: String? = null
-        val result = string.isNotNullOrEmptyAfterTrim()
-        assertFalse(result)
-    }
-
-    @Test
-    fun `isNotNullOrEmptyAfterTrim should return false for empty string`() {
-        val string = ""
-        val result = string.isNotNullOrEmptyAfterTrim()
-        assertFalse(result)
-    }
-
-    @Test
-    fun `isNotNullOrEmptyAfterTrim should return false for string with only whitespaces`() {
-        val string = "   "
-        val result = string.isNotNullOrEmptyAfterTrim()
-        assertFalse(result)
-    }
-
-    @Test
-    fun `isNotNullOrEmptyAfterTrim should return true for non-empty string`() {
-        val string = "Hello, World!"
-        val result = string.isNotNullOrEmptyAfterTrim()
-        assertTrue(result)
-    }
-
-    @Test
     fun `firstLetterUpperCase should capitalize the first letter of a string`() {
         val string = "hello, world!"
         val result = string.firstLetterUpperCase()

@@ -25,24 +25,6 @@ private const val URL_REGEX =
         "[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))\\.?)(?::\\d{2,5})?(?:[/?#]\\S*)?$"
 
 /**
- * Implements deprecated logic from PojoUtils.isNull()
- * @param string to check
- * @return true if string is null or trimmed string is empty
- */
-fun String?.isNullOrEmptyAfterTrim(): Boolean {
-    return this == null || this.trim().isEmpty()
-}
-
-/**
- * Implements deprecated logic from PojoUtils.isNotNull()
- * @param string to check
- * @return true if string is not null and trimmed string is not empty
- */
-fun String?.isNotNullOrEmptyAfterTrim(): Boolean {
-    return !this.isNullOrEmptyAfterTrim()
-}
-
-/**
  * Converts the first letter of the string to uppercase.
  *
  * @return The string with the first letter converted to uppercase.

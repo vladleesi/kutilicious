@@ -5,7 +5,7 @@ package dev.vladleesi.base
 import java.math.BigDecimal
 
 /**
- * Returns the integer value if it is not null, or zero if it is null.
+ * Wraps a nullable type and returns the integer value if it is not null, or zero if it is null.
  *
  * @return The integer value if not null, zero if null.
  */
@@ -46,7 +46,7 @@ fun Int.divideToPercent(divideTo: Int): Int {
 }
 
 /**
- * Returns the float value if it is not null, or zero if it is null.
+ * Wraps a nullable type and returns the float value if it is not null, or zero if it is null.
  *
  * @return The float value if not null, zero if null.
  */
@@ -67,7 +67,7 @@ fun Float?.isZero(): Boolean = this != null && this == 0.0F
 fun Float?.isNotZero(): Boolean = !isZero()
 
 /**
- * Returns the double value if it is not null, or zero if it is null.
+ * Wraps a nullable type and returns the double value if it is not null, or zero if it is null.
  *
  * @return The double value if not null, zero if null.
  */
@@ -88,7 +88,7 @@ fun Double?.isZero(): Boolean = this != null && this == 0.0
 fun Double?.isNotZero(): Boolean = !isZero()
 
 /**
- * Returns the BigDecimal value if it is not null, or BigDecimal.ZERO if it is null.
+ * Wraps a nullable type and returns the BigDecimal value if it is not null, or BigDecimal.ZERO if it is null.
  *
  * @return The BigDecimal value if not null, BigDecimal.ZERO if null.
  */
