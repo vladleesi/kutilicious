@@ -32,6 +32,7 @@ android {
 
 dependencies {
 
+    // Android
     implementation libs.androidx.appcompat
 
     // Test
