@@ -1,3 +1,5 @@
+@file:JvmName("ColorExtensions")
+
 package dev.vladleesi.color
 
 import androidx.annotation.ColorInt
