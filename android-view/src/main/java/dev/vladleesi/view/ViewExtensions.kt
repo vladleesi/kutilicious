@@ -5,7 +5,9 @@ package dev.vladleesi.view
 import android.os.Build
 import android.util.TypedValue
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.view.children
 
 /**
  * Sets the visibility of a View to [View.VISIBLE].
@@ -63,4 +65,27 @@ fun View.addCircleRipple() = with(TypedValue()) {
  */
 fun View.onFocus(block: (hasFocus: Boolean) -> Unit) {
     setOnFocusChangeListener { _, focus -> block(focus) }
+}
+
+/**
+ * Recursively iterates through each view in the hierarchy starting from the current view (this),
+ * and performs the specified action on each view.
+ *
+ * If the current view (this) is a ViewGroup, the action will be applied to all of its child views,
+ * and so on, recursively for each child view's children.
+ *
+ * @param actions The action to be performed on each view in the hierarchy.
+ *               This action is represented as a lambda expression with no arguments and no return value.
+ *               It will be executed on each individual view during the iteration.
+ *
+ * @see View
+ * @see ViewGroup
+ */
+fun View.forEachView(actions: () -> Unit) {
+    when (this) {
+        is ViewGroup -> {
+            children.forEach { view -> view.forEachView(actions) }
+        }
+        else -> actions.invoke()
+    }
 }

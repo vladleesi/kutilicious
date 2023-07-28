@@ -1,7 +1,9 @@
 package dev.vladleesi.view
 
+import android.content.Context
 import android.content.res.Resources.NotFoundException
 import android.view.View
+import android.view.ViewGroup
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.assertEquals
@@ -83,5 +85,69 @@ class ViewExtensionsTest {
         // Simulate focus change to false
         view.onFocusChangeListener?.onFocusChange(view, false)
         assertEquals(false, focusChanged)
+    }
+
+    @Test
+    fun testForEachView_singleView() {
+        // Create a single view
+        val view = View(ApplicationProvider.getApplicationContext())
+
+        // Counter to keep track of the number of times the action is executed
+        val counter = Counter()
+
+        // Call forEachView with a simple action that increments the counter
+        view.forEachView { counter.increment() }
+
+        // We expect the counter to be 1 since there is only one view
+        assertEquals(1, counter.getCount())
+    }
+
+    @Test
+    fun testForEachView_nestedViews() {
+        val context: Context = ApplicationProvider.getApplicationContext()
+        // Create a nested view hierarchy
+        val parent = object : ViewGroup(context) {
+            override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+                // Not needed for the test
+            }
+        }
+
+        val child1 = View(context)
+        val child2 = View(context)
+        val child3 = View(context)
+
+        parent.addView(child1)
+        parent.addView(child2)
+        parent.addView(child3)
+
+        val grandparent = object : ViewGroup(context) {
+            override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+                // Not needed for the test
+            }
+        }
+
+        grandparent.addView(parent)
+
+        // Counter to keep track of the number of times the action is executed
+        val counter = Counter()
+
+        // Call forEachView with a simple action that increments the counter
+        grandparent.forEachView { counter.increment() }
+
+        // We expect the counter to be 3 (the total number of views in the hierarchy)
+        assertEquals(3, counter.getCount())
+    }
+
+    // Helper class to keep track of the count
+    private class Counter {
+        private var count: Int = 0
+
+        fun increment() {
+            count++
+        }
+
+        fun getCount(): Int {
+            return count
+        }
     }
 }

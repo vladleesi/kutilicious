@@ -9,7 +9,7 @@
 |__/  \__/ \______/    \___/  |__/|__/|__/ \_______/|__/ \______/  \______/ |_______/
 ```
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.7.2&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.8.0&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
 
 Small Kotlin and Android extensions for a better development experience
 
@@ -23,10 +23,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.vladleesi.kutilicious:base:0.7.2'
-    implementation 'dev.vladleesi.kutilicious:android-preferences:0.7.2'
-    implementation 'dev.vladleesi.kutilicious:android-view:0.7.2'
-    implementation 'dev.vladleesi.kutilicious:android-text:0.7.2'
+    implementation 'dev.vladleesi.kutilicious:base:0.8.0'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:0.8.0'
+    implementation 'dev.vladleesi.kutilicious:android-view:0.8.0'
+    implementation 'dev.vladleesi.kutilicious:android-text:0.8.0'
 }
 ```
 
@@ -131,6 +131,7 @@ sharedPreferences.putAsync("isDarkModeEnabled", true)
 - `addRipple()`: Adds a ripple effect to the background of a View using the theme's selectableItemBackground attribute.
 - `addCircleRipple()`: Adds a circular ripple effect to the background of a View using the theme's selectableItemBackgroundBorderless attribute (available for API level 21 and higher).
 - `onFocus(block: (hasFocus: Boolean) -> Unit)`: Sets a callback function to be invoked when the focus state of a View changes.
+- `forEachView`: Kotlin extension function recursively iterates through each view in the hierarchy, applying a specified action (lambda expression) to each view, including all child views if the current view is a ViewGroup.
 
 ## Android Text
 
@@ -140,6 +141,9 @@ sharedPreferences.putAsync("isDarkModeEnabled", true)
 - `withAsterisk`: Formats a CharSequence with an asterisk and applies a highlight color to the asterisk using HTML tags.
 - `applyColorSpanToSubstrings`: Applies a foreground color span to specified substrings within a CharSequence.
 - `applyBoldSpanToSubstrings`: Applies a bold style span to specified substrings within a CharSequence.
+
+## Android Color
+- `lightenColor`: Lightens an RGB color by a given percentage. It takes an integer color value and a percentage value between 0.0 and 1.0 as inputs. The function returns the lightened color as an integer value representing ARGB components.
 
 ## License
 
