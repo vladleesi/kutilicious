@@ -9,7 +9,7 @@
 |__/  \__/ \______/    \___/  |__/|__/|__/ \_______/|__/ \______/  \______/ |_______/
 ```
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.8.1&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=0.8.2&color=blue&style=flat-square)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
 
 Small Kotlin and Android extensions for a better development experience
 
@@ -23,11 +23,11 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.vladleesi.kutilicious:base:0.8.1'
-    implementation 'dev.vladleesi.kutilicious:android-preferences:0.8.1'
-    implementation 'dev.vladleesi.kutilicious:android-view:0.8.1'
-    implementation 'dev.vladleesi.kutilicious:android-text:0.8.1'
-    implementation 'dev.vladleesi.kutilicious:android-color:0.8.1'
+    implementation 'dev.vladleesi.kutilicious:base:0.8.2'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:0.8.2'
+    implementation 'dev.vladleesi.kutilicious:android-view:0.8.2'
+    implementation 'dev.vladleesi.kutilicious:android-text:0.8.2'
+    implementation 'dev.vladleesi.kutilicious:android-color:0.8.2'
 }
 ```
 
@@ -145,6 +145,7 @@ sharedPreferences.putAsync("isDarkModeEnabled", true)
 
 ## Android Color
 - `lightenColor`: Lightens an RGB color by a given percentage. It takes an integer color value and a percentage value between 0.0 and 1.0 as inputs. The function returns the lightened color as an integer value representing ARGB components.
+- `darkenColor`: Darkens an RGB color by a given percentage. See `lightenColor`.
 
 ## License
 
