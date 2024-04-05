@@ -9,7 +9,7 @@
 |__/  \__/ \______/    \___/  |__/|__/|__/ \_______/|__/ \______/  \______/ |_______/
 ```
 
-Small Kotlin and Android extensions for a better development experience.
+Lightweight library with a set of small Kotlin and Android extensions for a better development experience.
 
 ## Setup
 
