@@ -2,10 +2,14 @@ name: GitHub Pages
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main ]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/publish-docs.yml'
 
 permissions:
-  contents: write
+  contents: read
+  deployments: write
 
 jobs:
   deploy:
