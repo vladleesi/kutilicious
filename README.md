@@ -33,7 +33,7 @@ dependencies {
 
 ## Documentation
 
-For detailed documentation and usage instructions, please visit [documentation site](https://vladleesi.dev/kutilicious)
+For detailed documentation and usage instructions, please visit [documentation site](https://vladleesi.dev/kutilicious).
 
 ## License
 

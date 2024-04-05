@@ -1,11 +1,12 @@
 name: GitHub Pages
+
 on:
   push:
-    branches:
-      - master
-      - main
+    branches: [ master, main ]
+
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
