@@ -42,4 +42,4 @@ jobs:
         with:
           branch: master
           force: true
-          token: ${{ secrets.PAT }}
+          github_token: ${{ secrets.PAT }}
