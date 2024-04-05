@@ -27,7 +27,7 @@ jobs:
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.TOKEN }}
           branch: gh-pages # The branch the action should deploy to.
           folder: site # The folder the action should deploy.
           clean: true # Automatically remove deleted files from the deploy branch
