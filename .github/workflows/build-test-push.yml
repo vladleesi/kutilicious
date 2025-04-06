@@ -1,14 +1,15 @@
-name: Build, Test and Push
+name: Build, Test, and Push
 
 on:
   push:
     branches: [ develop ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
           persist-credentials: false
@@ -19,30 +20,29 @@ jobs:
           distribution: 'corretto'
           java-version: '20'
 
-      - name: Enable KVM
-        run: |
-          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
-          sudo udevadm control --reload-rules
-          sudo udevadm trigger --name-match=kvm
-
-      - name: Make gradlew executable
+      - name: Make Gradle executable
         run: chmod +x ./gradlew
 
-      - name: Build with Gradle
+      - name: Build project
         run: ./gradlew build
 
       - name: Run unit tests
         run: ./gradlew test
 
-      - name: run tests
+      - name: Run instrumented tests on emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 34
-          script: ./gradlew connectedCheck --stacktrace
+          api-level: 30
+          target: google_apis
+          arch: x86_64
+          script: ./gradlew connectedCheck
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -no-audio -no-boot-anim
 
-      - name: Push to master branch
-        if: ${{ success() }}
+      - name: Push to master
+        if: success()
         uses: ad-m/github-push-action@master
         with:
           branch: master
           force: true
+          github_token: ${{ secrets.PAT }}
