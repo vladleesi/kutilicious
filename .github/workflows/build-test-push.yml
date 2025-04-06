@@ -29,15 +29,18 @@ jobs:
       - name: Run unit tests
         run: ./gradlew test
 
-      - name: Run instrumented tests on emulator
+      - name: Run Android Instrumentation Tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
           target: google_apis
           arch: x86_64
-          script: ./gradlew connectedCheck
+          profile: Nexus 6
+          emulator-options: -no-window -no-snapshot -no-audio -no-boot-anim -gpu swiftshader_indirect
           disable-animations: true
-          emulator-options: -no-snapshot -no-window -no-audio -no-boot-anim
+          disable-linux-hw-accel: true
+          emulator-boot-timeout: 600
+          script: ./gradlew connectedCheck
 
       - name: Push to master
         if: success()
