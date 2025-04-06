@@ -31,9 +31,11 @@ jobs:
       - name: Run Android tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 29
+          api-level: 30
           arch: x86
-          profile: Nexus 6
+          profile: pixel_xl
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
           script: ./gradlew connectedCheck --stacktrace
 
       - name: Push to master branch
