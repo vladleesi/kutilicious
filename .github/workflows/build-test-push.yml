@@ -36,10 +36,10 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: Nexus 6
-          emulator-options: -no-window -no-snapshot -no-audio -no-boot-anim -gpu swiftshader_indirect
+          emulator-options: -no-window -no-snapshot -no-audio -no-boot-anim -gpu swiftshader_indirect -verbose
           disable-animations: true
           disable-linux-hw-accel: true
-          emulator-boot-timeout: 600
+          emulator-boot-timeout: 900
           script: ./gradlew connectedCheck
 
       - name: Push to master
