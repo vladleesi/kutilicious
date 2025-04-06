@@ -19,6 +19,12 @@ jobs:
           distribution: 'corretto'
           java-version: '20'
 
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
@@ -28,14 +34,10 @@ jobs:
       - name: Run unit tests
         run: ./gradlew test
 
-      - name: Run Android tests
+      - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30
-          arch: x86
-          profile: pixel_xl
-          disable-animations: true
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          api-level: 34
           script: ./gradlew connectedCheck --stacktrace
 
       - name: Push to master branch
