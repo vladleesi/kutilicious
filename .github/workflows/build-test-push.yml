@@ -32,9 +32,18 @@ jobs:
       - name: Run Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 35
+          api-level: 30
+          target: default
           arch: x86_64
-          script: ./gradlew connectedCheck
+          profile: Nexus 6
+          script: |
+            echo "Waiting for emulator to boot"
+            adb wait-for-device
+            adb shell settings put global window_animation_scale 0
+            adb shell settings put global transition_animation_scale 0
+            adb shell settings put global animator_duration_scale 0
+            adb shell input keyevent 82
+            ./gradlew connectedCheck
 
       - name: Push to master
         if: success()
