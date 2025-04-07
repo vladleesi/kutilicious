@@ -21,11 +21,11 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.vladleesi.kutilicious:base:0.9.0'
-    implementation 'dev.vladleesi.kutilicious:android-preferences:0.9.0'
-    implementation 'dev.vladleesi.kutilicious:android-view:0.9.0'
-    implementation 'dev.vladleesi.kutilicious:android-text:0.9.0'
-    implementation 'dev.vladleesi.kutilicious:android-color:0.9.0'
+    implementation 'dev.vladleesi.kutilicious:base:1.0.3'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:1.0.3'
+    implementation 'dev.vladleesi.kutilicious:android-view:1.0.3'
+    implementation 'dev.vladleesi.kutilicious:android-text:1.0.3'
+    implementation 'dev.vladleesi.kutilicious:android-color:1.0.3'
 }
 ```
 
