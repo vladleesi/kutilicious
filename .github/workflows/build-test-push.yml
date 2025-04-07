@@ -31,6 +31,10 @@ jobs:
 
   instrument-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        api-level: [ 21, 23, 29, 30, 33 ]
+        target: [ default, google_apis ]
 
     steps:
       - name: Checkout Code
@@ -56,17 +60,11 @@ jobs:
       - name: Run Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30
-          target: default
+          api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.target }}
           arch: x86_64
           profile: Nexus 6
-          script: |
-            echo "Waiting for emulator to boot"
-            adb wait-for-device
-            adb shell settings put global window_animation_scale 0
-            adb shell settings put global transition_animation_scale 0
-            adb shell settings put global animator_duration_scale 0
-            ./gradlew connectedCheck
+          script: ./gradlew connectedCheck --stacktrace
 
   push-to-master:
     runs-on: ubuntu-latest
