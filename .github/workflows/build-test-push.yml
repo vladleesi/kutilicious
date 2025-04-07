@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
@@ -29,6 +29,30 @@ jobs:
       - name: Run unit tests
         run: ./gradlew test
 
+  instrument-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Set up JDK 20
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'corretto'
+          java-version: '20'
+
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
+
       - name: Run Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -42,13 +66,22 @@ jobs:
             adb shell settings put global window_animation_scale 0
             adb shell settings put global transition_animation_scale 0
             adb shell settings put global animator_duration_scale 0
-            adb shell input keyevent 82
             ./gradlew connectedCheck
 
-      - name: Push to master
-        if: success()
+  push-to-master:
+    runs-on: ubuntu-latest
+    needs: [ build-and-test ]
+    if: success()
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Push changes to master
         uses: ad-m/github-push-action@master
         with:
+          github_token: ${{ secrets.PAT }}
           branch: master
           force: true
-          github_token: ${{ secrets.PAT }}
