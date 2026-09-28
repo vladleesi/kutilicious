@@ -33,9 +33,7 @@ inline fun Boolean.ifFalse(block: Boolean?.() -> Unit): Boolean {
  *
  * @return True if the value is null or false, false otherwise.
  */
-fun Boolean?.nullOrFalse(): Boolean {
-    return this == null || this == false
-}
+fun Boolean?.nullOrFalse(): Boolean = this == null || this == false
 
 /**
  * Returns the Boolean value if it is not null, or false if it is null.

@@ -11,7 +11,6 @@ import org.junit.runner.RunWith
  */
 @RunWith(AndroidJUnit4::class)
 class ColorExtensionsTest {
-
     @Test
     fun testLightenColor_withZeroPercentage() {
         val originalColor = Color.rgb(100, 150, 200)

@@ -45,7 +45,10 @@ inline fun SharedPreferences.editAsync(actions: SharedPreferences.Editor.() -> U
  * @param defaultValue The default value to return if the key is not found or the value is null.
  * @return The value retrieved from the SharedPreferences, or the default value if not found or null.
  */
-inline fun <reified T> SharedPreferences.get(key: String, defaultValue: T): T {
+inline fun <reified T> SharedPreferences.get(
+    key: String,
+    defaultValue: T,
+): T {
     try {
         when (T::class) {
             Boolean::class -> return this.getBoolean(key, defaultValue as Boolean) as T
@@ -71,7 +74,10 @@ inline fun <reified T> SharedPreferences.get(key: String, defaultValue: T): T {
  * @param value The value to store.
  * @return True if the value was successfully stored, false otherwise.
  */
-inline fun <reified T> SharedPreferences.putSync(key: String?, value: T?): Boolean {
+inline fun <reified T> SharedPreferences.putSync(
+    key: String?,
+    value: T?,
+): Boolean {
     val editor = this.edit()
 
     when (T::class) {
@@ -95,7 +101,10 @@ inline fun <reified T> SharedPreferences.putSync(key: String?, value: T?): Boole
  * @param key The key used to store the value.
  * @param value The value to store.
  */
-inline fun <reified T> SharedPreferences.putAsync(key: String?, value: T?) {
+inline fun <reified T> SharedPreferences.putAsync(
+    key: String?,
+    value: T?,
+) {
     val editor = this.edit()
 
     when (T::class) {

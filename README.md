@@ -9,7 +9,7 @@
 |__/  \__/ \______/    \___/  |__/|__/|__/ \_______/|__/ \______/  \______/ |_______/
 ```
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE) [![MavenCentral](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=1.0.3&color=blue)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/dev.vladleesi.kutilicious/base?versionPrefix=2.0.0&color=blue)](https://central.sonatype.com/namespace/dev.vladleesi.kutilicious) [![GitHub Pages](https://img.shields.io/github/deployments/vladleesi/kutilicious/github-pages?label=docs)](https://github.com/vladleesi/kutilicious/deployments)
 
 Small Kotlin and Android extensions for a better development experience.
 
@@ -23,19 +23,19 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.vladleesi.kutilicious:base:1.0.3'
-    implementation 'dev.vladleesi.kutilicious:android-preferences:1.0.3'
-    implementation 'dev.vladleesi.kutilicious:android-view:1.0.3'
-    implementation 'dev.vladleesi.kutilicious:android-text:1.0.3'
-    implementation 'dev.vladleesi.kutilicious:android-color:1.0.3'
+    implementation 'dev.vladleesi.kutilicious:base:2.0.0'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:2.0.0'
+    implementation 'dev.vladleesi.kutilicious:android-view:2.0.0'
+    implementation 'dev.vladleesi.kutilicious:android-text:2.0.0'
+    implementation 'dev.vladleesi.kutilicious:android-color:2.0.0'
 }
 ```
+
+Version 2.0.0 requires Android API 23 or newer.
 
 ## Documentation
 
 For detailed documentation and usage instructions, please visit [documentation site](https://vladleesi.dev/kutilicious).
-
-[![GitHub Pages](https://github.com/vladleesi/kutilicious/actions/workflows/publish-docs.yml/badge.svg)](https://github.com/vladleesi/kutilicious/actions/workflows/publish-docs.yml)
 
 ## License
 

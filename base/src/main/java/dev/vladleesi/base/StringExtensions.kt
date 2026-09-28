@@ -29,8 +29,7 @@ private const val URL_REGEX =
  *
  * @return The string with the first letter converted to uppercase.
  */
-fun String.firstLetterUpperCase(): String =
-    substring(0, 1).uppercase(Locale.getDefault()) + substring(1)
+fun String.firstLetterUpperCase(): String = substring(0, 1).uppercase(Locale.getDefault()) + substring(1)
 
 /**
  * Adds a prefix to the string if it doesn't already start with it.
@@ -39,7 +38,10 @@ fun String.firstLetterUpperCase(): String =
  * @param ignoreCase Whether to ignore the case when comparing the prefix.
  * @return The string with the prefix added if necessary.
  */
-fun String.addMissingPrefix(prefix: String, ignoreCase: Boolean = false): String =
+fun String.addMissingPrefix(
+    prefix: String,
+    ignoreCase: Boolean = false,
+): String =
     if (!startsWith(prefix, ignoreCase)) {
         prefix + this
     } else {
@@ -75,9 +77,7 @@ fun String.isUrl(): Boolean = Regex(URL_REGEX).containsMatchIn(this)
  *
  * @return True if the string is a URL with a custom scheme, false otherwise.
  */
-fun String.isUrlWithCustomScheme(): Boolean {
-    return Regex(SCHEME_REGEX).containsMatchIn(this) && !this.startsWith(HTTP_PREFIX)
-}
+fun String.isUrlWithCustomScheme(): Boolean = Regex(SCHEME_REGEX).containsMatchIn(this) && !this.startsWith(HTTP_PREFIX)
 
 /**
  * Extracts the query parameters from the string URL and returns them as a map.
@@ -108,18 +108,18 @@ fun String.getQueryMap(): Map<String, String> {
  */
 fun String.removeQueries(vararg queryKeys: String): String {
     val uri = URI(this)
-    val queryParameters = uri.query
-        ?.split(AMPERSAND_SEPARATOR)
-        ?.mapNotNull { query ->
-            val queryKey = query.split(EQUALS_SEPARATOR).firstOrNull()
-            if (queryKeys.any { queryKeyExtended -> queryKeyExtended == queryKey }) {
-                null
-            } else {
-                query
-            }
-        }
-        ?.joinToString(separator = AMPERSAND_SEPARATOR)
-        ?.takeIf { queryRaw -> queryRaw.isNotEmpty() }
+    val queryParameters =
+        uri.query
+            ?.split(AMPERSAND_SEPARATOR)
+            ?.mapNotNull { query ->
+                val queryKey = query.split(EQUALS_SEPARATOR).firstOrNull()
+                if (queryKeys.any { queryKeyExtended -> queryKeyExtended == queryKey }) {
+                    null
+                } else {
+                    query
+                }
+            }?.joinToString(separator = AMPERSAND_SEPARATOR)
+            ?.takeIf { queryRaw -> queryRaw.isNotEmpty() }
     val filteredUri = URI(uri.scheme, uri.authority, uri.path, queryParameters, uri.fragment)
     return filteredUri.toString()
 }

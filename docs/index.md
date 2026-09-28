@@ -21,13 +21,15 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.vladleesi.kutilicious:base:1.0.3'
-    implementation 'dev.vladleesi.kutilicious:android-preferences:1.0.3'
-    implementation 'dev.vladleesi.kutilicious:android-view:1.0.3'
-    implementation 'dev.vladleesi.kutilicious:android-text:1.0.3'
-    implementation 'dev.vladleesi.kutilicious:android-color:1.0.3'
+    implementation 'dev.vladleesi.kutilicious:base:2.0.0'
+    implementation 'dev.vladleesi.kutilicious:android-preferences:2.0.0'
+    implementation 'dev.vladleesi.kutilicious:android-view:2.0.0'
+    implementation 'dev.vladleesi.kutilicious:android-text:2.0.0'
+    implementation 'dev.vladleesi.kutilicious:android-color:2.0.0'
 }
 ```
+
+Version 2.0.0 requires Android API 23 or newer.
 
 ## Base
 

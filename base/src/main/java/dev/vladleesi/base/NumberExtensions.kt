@@ -40,10 +40,12 @@ fun Int?.isNotZero(): Boolean = !isZero()
  * @return The resulting percentage value.
  */
 @Suppress("MagicNumber")
-fun Int.divideToPercent(divideTo: Int): Int {
-    return if (divideTo == 0) 0
-    else (this / divideTo.toFloat() * 100).toInt()
-}
+fun Int.divideToPercent(divideTo: Int): Int =
+    if (divideTo == 0) {
+        0
+    } else {
+        (this / divideTo.toFloat() * 100).toInt()
+    }
 
 /**
  * Wraps a nullable type and returns the float value if it is not null, or zero if it is null.
@@ -114,5 +116,4 @@ fun BigDecimal?.isNotZero(): Boolean = !isZero()
  * @param value The other BigDecimal value to compare.
  * @return True if both values are
  * */
-infix fun BigDecimal?.same(value: BigDecimal?): Boolean =
-    this != null && value != null && this == value
+infix fun BigDecimal?.same(value: BigDecimal?): Boolean = this != null && value != null && this == value

@@ -17,7 +17,6 @@ import org.junit.runner.RunWith
  */
 @RunWith(AndroidJUnit4::class)
 class ViewExtensionsTest {
-
     @Test
     fun test_visible() {
         val view = View(ApplicationProvider.getApplicationContext())
@@ -62,9 +61,10 @@ class ViewExtensionsTest {
             assertTrue(view.background != null)
         } else {
             val errorMessage = "API level is lower than Lollipop."
-            val exception = assertThrows(NotFoundException::class.java) {
-                throw NotFoundException(errorMessage)
-            }
+            val exception =
+                assertThrows(NotFoundException::class.java) {
+                    throw NotFoundException(errorMessage)
+                }
             assertEquals(errorMessage, exception.message)
         }
     }
@@ -106,11 +106,18 @@ class ViewExtensionsTest {
     fun testForEachView_nestedViews() {
         val context: Context = ApplicationProvider.getApplicationContext()
         // Create a nested view hierarchy
-        val parent = object : ViewGroup(context) {
-            override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-                // Not needed for the test
+        val parent =
+            object : ViewGroup(context) {
+                override fun onLayout(
+                    changed: Boolean,
+                    l: Int,
+                    t: Int,
+                    r: Int,
+                    b: Int,
+                ) {
+                    // Not needed for the test
+                }
             }
-        }
 
         val child1 = View(context)
         val child2 = View(context)
@@ -120,11 +127,18 @@ class ViewExtensionsTest {
         parent.addView(child2)
         parent.addView(child3)
 
-        val grandparent = object : ViewGroup(context) {
-            override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-                // Not needed for the test
+        val grandparent =
+            object : ViewGroup(context) {
+                override fun onLayout(
+                    changed: Boolean,
+                    l: Int,
+                    t: Int,
+                    r: Int,
+                    b: Int,
+                ) {
+                    // Not needed for the test
+                }
             }
-        }
 
         grandparent.addView(parent)
 
@@ -146,8 +160,6 @@ class ViewExtensionsTest {
             count++
         }
 
-        fun getCount(): Int {
-            return count
-        }
+        fun getCount(): Int = count
     }
 }

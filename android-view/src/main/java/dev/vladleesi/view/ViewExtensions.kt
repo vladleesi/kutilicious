@@ -41,10 +41,11 @@ private fun View.setVisibilityInner(visibility: Int) {
  * Adds a ripple effect to the background of a View.
  * The ripple effect is obtained from the theme's selectableItemBackground attribute.
  */
-fun View.addRipple() = with(TypedValue()) {
-    context.theme.resolveAttribute(android.R.attr.selectableItemBackground, this, true)
-    setBackgroundResource(resourceId)
-}
+fun View.addRipple() =
+    with(TypedValue()) {
+        context.theme.resolveAttribute(android.R.attr.selectableItemBackground, this, true)
+        setBackgroundResource(resourceId)
+    }
 
 /**
  * Adds a circular ripple effect to the background of a View.
@@ -53,10 +54,11 @@ fun View.addRipple() = with(TypedValue()) {
  * if the API level is lower than [android.os.Build.VERSION_CODES.LOLLIPOP].
  */
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-fun View.addCircleRipple() = with(TypedValue()) {
-    context.theme.resolveAttribute(android.R.attr.selectableItemBackgroundBorderless, this, true)
-    setBackgroundResource(resourceId)
-}
+fun View.addCircleRipple() =
+    with(TypedValue()) {
+        context.theme.resolveAttribute(android.R.attr.selectableItemBackgroundBorderless, this, true)
+        setBackgroundResource(resourceId)
+    }
 
 /**
  * Sets a callback function to be invoked when the focus state of a View changes.

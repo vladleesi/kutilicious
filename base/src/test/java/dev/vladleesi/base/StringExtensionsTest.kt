@@ -9,7 +9,6 @@ import org.junit.Test
  * Created by Vladislav Kochetov on 5/26/2023.
  */
 class StringExtensionsTest {
-
     @Test
     fun `firstLetterUpperCase should capitalize the first letter of a string`() {
         val string = "hello, world!"
@@ -94,11 +93,12 @@ class StringExtensionsTest {
     fun `getQueryMap should return a map of query parameters`() {
         val url = "https://example.com?param1=value1&param2=value2&param3=value3"
         val result = url.getQueryMap()
-        val expectedMap = mapOf(
-            "param1" to "value1",
-            "param2" to "value2",
-            "param3" to "value3"
-        )
+        val expectedMap =
+            mapOf(
+                "param1" to "value1",
+                "param2" to "value2",
+                "param3" to "value3",
+            )
         assertEquals(expectedMap, result)
     }
 

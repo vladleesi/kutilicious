@@ -11,7 +11,6 @@ import java.util.Locale
  * Created by Vladislav Kochetov on 6/8/2023.
  */
 class DateExtensionsTest {
-
     @Test
     fun testNow() {
         val currentDate = Date()

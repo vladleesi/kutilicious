@@ -38,7 +38,10 @@ fun Long.toDate(): Date = Date(this)
  * @param locale  The locale used for interpreting the date string. Defaults to the system default locale.
  * @return The converted Date object, or null if the parsing fails.
  */
-fun String.toDate(pattern: String, locale: Locale = Locale.getDefault()): Date? =
+fun String.toDate(
+    pattern: String,
+    locale: Locale = Locale.getDefault(),
+): Date? =
     try {
         SimpleDateFormat(pattern, locale).parse(this)
     } catch (ex: ParseException) {
@@ -65,7 +68,10 @@ fun String.toDate(simpleDateFormat: SimpleDateFormat): Date? =
  * @param locale  The locale used for formatting the date string. Defaults to the system default locale.
  * @return The string representation of the date, or null if an error occurs during formatting.
  */
-fun Date.toString(pattern: String, locale: Locale = Locale.getDefault()): String? =
+fun Date.toString(
+    pattern: String,
+    locale: Locale = Locale.getDefault(),
+): String? =
     try {
         SimpleDateFormat(pattern, locale).format(this)
     } catch (ex: IllegalArgumentException) {

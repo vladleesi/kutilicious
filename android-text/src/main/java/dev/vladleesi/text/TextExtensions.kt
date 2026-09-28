@@ -30,7 +30,10 @@ private const val FORMAT_COLOR_SUBSTRING_INDEX = 2
  * @param colorResId The color resource ID.
  * @return The hexadecimal representation of the highlight color.
  */
-private fun getHighlightColor(context: Context, @ColorRes colorResId: Int): String {
+private fun getHighlightColor(
+    context: Context,
+    @ColorRes colorResId: Int,
+): String {
     val highlightColor = ContextCompat.getColor(context, colorResId)
     return String.format("%X", highlightColor).substring(FORMAT_COLOR_SUBSTRING_INDEX)
 }
@@ -46,7 +49,7 @@ private fun getHighlightColor(context: Context, @ColorRes colorResId: Int): Stri
 fun String.fromHTML(
     flags: Int = HtmlCompat.FROM_HTML_MODE_LEGACY,
     tagHandler: Html.TagHandler? = null,
-    imageGetter: ImageGetter? = null
+    imageGetter: ImageGetter? = null,
 ): CharSequence = this.parseAsHtml(flags, imageGetter, tagHandler)
 
 /**
@@ -54,8 +57,7 @@ fun String.fromHTML(
  *
  * @return The CharSequence formatted in bold.
  */
-fun CharSequence.bold(): CharSequence =
-    "<b>$this</b>".fromHTML()
+fun CharSequence.bold(): CharSequence = "<b>$this</b>".fromHTML()
 
 /**
  * Appends an asterisk to the CharSequence and applies the specified highlight color to it.
@@ -64,7 +66,10 @@ fun CharSequence.bold(): CharSequence =
  * @param colorResId The resource ID of the color to apply to the asterisk.
  * @return A CharSequence with an asterisk appended and highlighted with the specified color.
  */
-fun CharSequence.withAsterisk(context: Context, @ColorRes colorResId: Int): CharSequence {
+fun CharSequence.withAsterisk(
+    context: Context,
+    @ColorRes colorResId: Int,
+): CharSequence {
     // Retrieve the color from resources
     val color = ContextCompat.getColor(context, colorResId)
 
@@ -88,20 +93,21 @@ fun CharSequence.withAsterisk(context: Context, @ColorRes colorResId: Int): Char
 fun CharSequence.applyColorSpanToSubstrings(
     colorHex: Int,
     ignoreCase: Boolean = false,
-    vararg subStrings: String
-): CharSequence = buildSpannedString {
-    append(this@applyColorSpanToSubstrings)
+    vararg subStrings: String,
+): CharSequence =
+    buildSpannedString {
+        append(this@applyColorSpanToSubstrings)
 
-    subStrings.forEach { sub ->
-        var start = indexOf(sub, ignoreCase = ignoreCase)
-        while (start != -1) {
-            val end = start + sub.length
-            val colorSpan = ForegroundColorSpan(colorHex)
-            setSpan(colorSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            start = indexOf(sub, start + 1, ignoreCase = ignoreCase)
+        subStrings.forEach { sub ->
+            var start = indexOf(sub, ignoreCase = ignoreCase)
+            while (start != -1) {
+                val end = start + sub.length
+                val colorSpan = ForegroundColorSpan(colorHex)
+                setSpan(colorSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                start = indexOf(sub, start + 1, ignoreCase = ignoreCase)
+            }
         }
     }
-}
 
 /**
  * Applies a bold style span to the specified substrings within the CharSequence.
@@ -112,17 +118,18 @@ fun CharSequence.applyColorSpanToSubstrings(
  */
 fun CharSequence.applyBoldSpanToSubstrings(
     vararg subStrings: String,
-    ignoreCase: Boolean = false
-): CharSequence = buildSpannedString {
-    append(this@applyBoldSpanToSubstrings)
+    ignoreCase: Boolean = false,
+): CharSequence =
+    buildSpannedString {
+        append(this@applyBoldSpanToSubstrings)
 
-    subStrings.forEach { sub ->
-        var start = indexOf(sub, ignoreCase = ignoreCase)
-        while (start != -1) {
-            val end = start + sub.length
-            val boldSpan = StyleSpan(Typeface.BOLD)
-            setSpan(boldSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            start = indexOf(sub, start + 1, ignoreCase = ignoreCase)
+        subStrings.forEach { sub ->
+            var start = indexOf(sub, ignoreCase = ignoreCase)
+            while (start != -1) {
+                val end = start + sub.length
+                val boldSpan = StyleSpan(Typeface.BOLD)
+                setSpan(boldSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                start = indexOf(sub, start + 1, ignoreCase = ignoreCase)
+            }
         }
     }
-}

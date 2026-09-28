@@ -14,7 +14,6 @@ import org.junit.Test
  * Created by Vladislav Kochetov on 6/17/2023.
  */
 class TextExtensionsTest {
-
     private lateinit var context: Context
 
     @Before
@@ -64,9 +63,10 @@ class TextExtensionsTest {
         val inputText = "This is a test"
         val colorHex = ContextCompat.getColor(context, androidx.appcompat.R.color.error_color_material_light)
         val subStrings = arrayOf("is", "test")
-        val expectedOutput = (
-            "Th<span style=\"color:#FF0000;\">is</span> <span style=\"color:#FF0000;\">" +
-                "is</span> a <span style=\"color:#FF0000;\">test</span>"
+        val expectedOutput =
+            (
+                "Th<span style=\"color:#FF0000;\">is</span> <span style=\"color:#FF0000;\">" +
+                    "is</span> a <span style=\"color:#FF0000;\">test</span>"
             ).fromHTML()
 
         val output = inputText.applyColorSpanToSubstrings(colorHex, false, *subStrings)
@@ -93,12 +93,19 @@ class TextExtensionsTest {
         assertSpanType(output, 2, StyleSpan::class.java)
     }
 
-    private fun assertSpanCount(spanned: Spanned, expectedCount: Int) {
+    private fun assertSpanCount(
+        spanned: Spanned,
+        expectedCount: Int,
+    ) {
         val spans = spanned.getSpans(0, spanned.length, Any::class.java)
         assertEquals(expectedCount, spans.size)
     }
 
-    private fun assertSpanType(spanned: Spanned, index: Int, expectedType: Class<*>) {
+    private fun assertSpanType(
+        spanned: Spanned,
+        index: Int,
+        expectedType: Class<*>,
+    ) {
         val spans = spanned.getSpans(0, spanned.length, Any::class.java)
         assertEquals(expectedType, spans[index]::class.java)
     }

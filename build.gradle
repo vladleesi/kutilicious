@@ -1,64 +1,53 @@
+buildscript {
+    dependencies {
+        // Override AGP's minimum embedded version while retaining built-in Kotlin support.
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.4.20'
+    }
+}
+
 plugins {
-    id 'com.android.application' version '8.0.2' apply false
-    id 'com.android.library' version '8.0.2' apply false
-    id 'org.jetbrains.kotlin.android' version '1.8.21' apply false
-    id 'org.jlleitschuh.gradle.ktlint' version '11.0.0'
-    id 'maven-publish'
-    id 'signing'
+    id 'com.android.library' version '9.4.0' apply false
+    id 'org.jlleitschuh.gradle.ktlint' version '14.2.0'
+    id 'com.vanniktech.maven.publish' version '0.37.0' apply false
 }
 
 allprojects {
     apply plugin: "org.jlleitschuh.gradle.ktlint"
 }
 
-signing {
-    sign publishing.publications
-}
-
 subprojects { subproject ->
-    publishing {
-        def subprojectName = subproject.name.toString()
-        publications {
-            "$subprojectName"(MavenPublication) {
-                groupId project.property('publication.groupId')
-                artifactId subproject.name
-                version project.property('publication.version')
+    apply plugin: 'com.vanniktech.maven.publish'
 
-                // Include your library's AAR file
-                artifact("$rootDir/$subprojectName/build/outputs/aar/$subprojectName-release.aar")
+    group = project.property('publication.groupId')
+    version = project.property('publication.version')
 
-                pom {
-                    url = project.property('pom.url')
-                    name = project.property('pom.name')
-                    description = project.property('pom.description')
-                    scm {
-                        url = project.property('pom.scm.url')
-                        connection = project.property('pom.scm.connection')
-                        developerConnection = project.property('pom.scm.developer.connection')
-                    }
-                    licenses {
-                        license {
-                            name = project.property('pom.license.name')
-                            url = project.property('pom.license.url')
-                            distribution = project.property('pom.license.distribution')
-                        }
-                    }
-                    developers {
-                        developer {
-                            id = project.property('pom.developer.id')
-                            name = project.property('pom.developer.name')
-                        }
-                    }
+    mavenPublishing {
+        publishToMavenCentral(true)
+        signAllPublications()
+        coordinates(project.group.toString(), subproject.name, project.version.toString())
+
+        pom {
+            name = "${project.property('pom.name')} ${subproject.name}"
+            description = project.property('pom.description')
+            inceptionYear = project.property('pom.inception.year')
+            url = project.property('pom.url')
+            scm {
+                url = project.property('pom.scm.url')
+                connection = project.property('pom.scm.connection')
+                developerConnection = project.property('pom.scm.developer.connection')
+            }
+            licenses {
+                license {
+                    name = project.property('pom.license.name')
+                    url = project.property('pom.license.url')
+                    distribution = project.property('pom.license.distribution')
                 }
             }
-        }
-
-        repositories {
-            maven {
-                url = project.property('nexus.url')
-                credentials {
-                    username = System.getenv('NEXUS_USERNAME')
-                    password = System.getenv('NEXUS_PASSWORD')
+            developers {
+                developer {
+                    id = project.property('pom.developer.id')
+                    name = project.property('pom.developer.name')
+                    url = project.property('pom.developer.url')
                 }
             }
         }

@@ -12,7 +12,6 @@ import java.math.BigDecimal
  */
 
 class NumberExtensionsTest {
-
     @Test
     fun `orZero should return the value if it's not null`() {
         val number = 42
