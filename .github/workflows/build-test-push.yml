@@ -71,15 +71,12 @@ jobs:
     needs: [ build-and-test, instrument-test ]
     if: success()
 
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v5
-        with:
-          persist-credentials: false
 
       - name: Push changes to master
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.PAT }}
-          branch: master
-          force: true
+        run: git push origin HEAD:master
