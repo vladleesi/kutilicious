@@ -1,12 +1,12 @@
 buildscript {
     dependencies {
         // Override AGP's minimum embedded version while retaining built-in Kotlin support.
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.4.20'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.4.21'
     }
 }
 
 plugins {
-    id 'com.android.library' version '9.4.0' apply false
+    id 'com.android.library' version '9.4.1' apply false
     id 'org.jlleitschuh.gradle.ktlint' version '14.2.0'
     id 'com.vanniktech.maven.publish' version '0.37.0' apply false
 }
