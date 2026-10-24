@@ -3,6 +3,11 @@ name: Build, Test, and Push
 on:
   push:
     branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+permissions:
+  contents: read
 
 jobs:
   build-and-test:
@@ -69,7 +74,7 @@ jobs:
   push-to-master:
     runs-on: ubuntu-latest
     needs: [build-and-test, instrument-test]
-    if: success()
+    if: github.event_name == 'push' && success()
 
     permissions:
       contents: write

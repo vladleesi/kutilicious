@@ -37,6 +37,15 @@ Version 2.0.0 requires Android API 23 or newer.
 
 For detailed documentation and usage instructions, please visit [documentation site](https://vladleesi.dev/kutilicious).
 
+## Dependency updates
+
+Renovate tracks Gradle dependencies, the Gradle wrapper, and GitHub Actions, and opens pull requests against `develop`.
+Minor and patch updates to Gradle dependencies and GitHub Actions are grouped separately; major updates and Gradle wrapper updates remain separate. Updates require manual review and merging.
+Pull requests run the build and tests. Successful pushes to `develop` promote changes to `master` and deploy the documentation.
+
+The hosted Renovate app already has repository access (see [onboarding PR #5](https://github.com/vladleesi/kutilicious/pull/5)).
+This configuration becomes active once `renovate.json` reaches the default branch (`master`) through the existing promotion workflow.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
