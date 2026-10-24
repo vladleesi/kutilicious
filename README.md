@@ -41,7 +41,7 @@ For detailed documentation and usage instructions, please visit [documentation s
 
 Renovate lists dependency updates for `develop` in a single Dependency Dashboard issue.
 Pull requests are created only when an update is approved in that issue.
-See [renovate.json](renovate.json) for configuration.
+See [.github/renovate.json](.github/renovate.json) and the [shared preset](https://github.com/vladleesi/renovate-config) for configuration.
 
 ## License
 
