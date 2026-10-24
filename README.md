@@ -39,7 +39,8 @@ For detailed documentation and usage instructions, please visit [documentation s
 
 ## Dependency updates
 
-Renovate opens dependency update pull requests against `develop`. Updates require manual review and merging.
+Renovate lists dependency updates for `develop` in a single Dependency Dashboard issue.
+Pull requests are created only when an update is approved in that issue.
 See [renovate.json](renovate.json) for configuration.
 
 ## License
