@@ -39,12 +39,8 @@ For detailed documentation and usage instructions, please visit [documentation s
 
 ## Dependency updates
 
-Renovate tracks Gradle dependencies, the Gradle wrapper, and GitHub Actions, and opens pull requests against `develop`.
-Minor and patch updates to Gradle dependencies and GitHub Actions are grouped separately; major updates and Gradle wrapper updates remain separate. Updates require manual review and merging.
-Pull requests run the build and tests. Successful pushes to `develop` promote changes to `master` and deploy the documentation.
-
-The hosted Renovate app already has repository access (see [onboarding PR #5](https://github.com/vladleesi/kutilicious/pull/5)).
-This configuration becomes active once `renovate.json` reaches the default branch (`master`) through the existing promotion workflow.
+Renovate opens dependency update pull requests against `develop`. Updates require manual review and merging.
+See [renovate.json](renovate.json) for configuration.
 
 ## License
 
